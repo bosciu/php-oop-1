@@ -23,7 +23,7 @@
             for($i = 0; $i<(5 - $this->rating); $i++)
                 echo '<i class="far fa-star"></i>';
         }
-        public function getDescription(){
+        public function getShortDescription(){
             if(strlen($this->description)>30){
                 return substr($this->description,0,30) . "...";
             }else{
