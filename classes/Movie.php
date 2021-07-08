@@ -4,15 +4,16 @@
         private $rating;
         public $language;
         public $description;
-        public $url = "https://poloniami.pl/wp-content/uploads/2018/03/films.jpg";
+        public $url;
         public $cast;
         
-        function __construct($title, $rating,$language, $description, $cast = []){
+        function __construct($title, $rating,$language, $description, $cast = [],$url="https://poloniami.pl/wp-content/uploads/2018/03/films.jpg"){
             $this->title = $title;
             $this->rating = $rating;
             $this->language = $language;
             $this->description = $description;
             $this->cast = $cast;
+            $this->url = $url;
         }
 
         public function getRating(){
@@ -21,5 +22,12 @@
             }
             for($i = 0; $i<(5 - $this->rating); $i++)
                 echo '<i class="far fa-star"></i>';
+        }
+        public function getDescription(){
+            if(strlen($this->description)>30){
+                return substr($this->description,0,30) . "...";
+            }else{
+                return $this->description;
+            }
         }
     };

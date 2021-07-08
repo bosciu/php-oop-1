@@ -48,12 +48,18 @@ body .container .card {
 }
 
 body .container .card .img-container {
+  height: 50%;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
 body .container .card .img-container img {
   width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 10%;
+     object-position: 10%;
 }
 
 body .container .card .description {
@@ -85,5 +91,10 @@ body .container .card:hover .img-container {
 
 body .container .card:hover .description {
   opacity: 1;
+}
+
+body .container .card .short-description h4 {
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 /*# sourceMappingURL=index.css.map */

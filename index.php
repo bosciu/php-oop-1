@@ -5,7 +5,15 @@
         "Marcello Gustavo",
         "Gianpiero Marchesino"
     ];
-    $movie1 = new Movie("Titolo", 4,"it", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat atque perferendis suscipit voluptatem eligendi, dolorum maxime possimus maiores labore amet in nostrum enim recusandae vel illo esse voluptas ex blanditiis temporibus beatae iure id alias at! Quos ratione laboriosam optio non nulla, mollitia illo suscipit ea! Optio dolorem provident sunt.", $castMovie1);
+    $castMovie2 = ["Perialbero Frustato", "Marcello Bello", "Niky H. Boston", "Marcelo Furbon"];
+    $movies = [
+        
+        $movie1 =  new Movie("Una casa bella",3, "en", "Un giorno un ragazzo vide una casa, la casa più bella vista fin'ora", $castMovie2,"https://movieplayer.net-cdn.it/t/images/2010/10/04/la-locandina-di-johnny-il-bello-177438_jpg_300x300_crop_q85.jpg"),
+
+        $movie2 = new Movie("Titolo", 4,"it", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat atque perferendis suscipit voluptatem eligendi, dolorum maxime possimus maiores labore amet in nostrum enim recusandae vel illo esse voluptas ex blanditiis temporibus beatae iure id alias at! Quos ratione laboriosam optio non nulla, mollitia illo suscipit ea! Optio dolorem provident sunt.", $castMovie1),
+
+        $movie3 = new Movie("Non ho veramente fantasia", 5, "it", "Non ho fantasia per il titolo, figurati per la descrizione", ["Gianni Bertolini", "Me Medesimo"],"https://www.cinefacts.it/foto/h!fantasia-poster-locandina-cinefacts.jpg")
+    ];
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -23,26 +31,32 @@
 <body>
     <?php include_once __DIR__ . "/partials/header.php"?>
     <div class="container d-flex">
-        <div class="card">
+        <?php foreach($movies as $movie){?>
+            <div class="card">
             <div class="img-container">
-                <img src=<?=$movie1->url?> alt=<?=$movie1->title?>>
+                <img src=<?=$movie->url?> alt=<?=$movie->title?>>
             </div>
-            <h2><?=$movie1->title?></h2>
+            <h2><?=$movie->title?></h2>
             <div class="rating">
-                <?php $movie1->getRating();?>
+                <?php $movie->getRating();?>
             </div>
-            <h4><?= $movie1->language?></h4>
+            <h4><?= $movie->language?></h4>
             <div class="cast">
                 Cast: <br>
                 <?php
-                    foreach ($movie1->cast as $actor) {?>
+                    foreach ($movie->cast as $actor) {?>
                         <span><?=$actor?></span>, 
                 <?php };?>
             </div>
+            <div class="short-description">
+                <h4>Descrizione rapida</h4>
+                <p><?=$movie->getShortDescription()?></p>
+            </div>
             <div class="description">
-                <?=$movie1->description?>
+                <?=$movie->description?>
             </div>
         </div>
+        <?php };?>
     </div>
 </body>
 </html>
