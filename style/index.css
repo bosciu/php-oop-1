@@ -1,0 +1,21 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+body header {
+  height: 200px;
+  background-color: aquamarine;
+}
+
+body header h1 {
+  font-size: 30px;
+  text-align: center;
+}
+/*# sourceMappingURL=index.css.map */
